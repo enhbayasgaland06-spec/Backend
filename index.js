@@ -5,6 +5,9 @@ require('dotenv').config()
 const app = express()
 app.use(express.json())
 
+const userRoutes = require('./routes/UseRoutes')
+app.use('/users', userRoutes)
+
 // MongoDB холбох
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB холбогдлоо! ✅"))
